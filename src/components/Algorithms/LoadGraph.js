@@ -14,9 +14,13 @@ const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
   useEffect(() => {
     fetch(`${baseUrl}/data/graph_list.json`)
       .then(response => response.json())
-      .then(data => setAvailableGraphs(data))
+      .then(data => {
+        console.log('Available Graphs:', data);
+        setAvailableGraphs(data);
+      })
       .catch(error => console.error('Error fetching graph list:', error));
   }, []);
+  
 
   const generateLayout = (nodes) => {
     const centerX = svgWidth / 2;
@@ -54,10 +58,15 @@ const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
   const handleGraphSelect = (event) => {
     const selectedFile = event.target.value;
     setSelectedGraph(selectedFile);
-
+  
     if (selectedFile) {
       fetch(`${baseUrl}/data/${selectedFile}`)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok. Status: ${response.status}`);
+          }
+          return response.json();
+        })
         .then(processGraphData)
         .catch(error => {
           alert('Error loading graph. Please try again.');
@@ -65,7 +74,7 @@ const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
         });
     }
   };
-
+  
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
