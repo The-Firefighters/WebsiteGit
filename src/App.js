@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Toolbar from './componenets/Toolbar';
-import HomeScreen from './componenets/Home/HomeScreen';
-import Contact from './componenets/Home/Contact';
-import Algorithm from './componenets/Algorithms/AlgorithmsPage';
-import Information from './componenets/Home/Information';
+import Toolbar from './components/Toolbar';
+import HomeScreen from './components/Home/HomeScreen';
+import Contact from './components/Home/Contact';
+import Algorithm from './components/Algorithms/AlgorithmsPage';
+import Information from './components/Home/Information';
 
 function App() {
   return (
