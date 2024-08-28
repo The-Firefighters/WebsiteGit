@@ -1,0 +1,31 @@
+.choose-algo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.choose-algo .section {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.choose-algo select,
+.choose-algo input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #189AB4;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+.choose-algo .error {
+    color: #D1345B;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+}

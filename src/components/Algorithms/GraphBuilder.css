@@ -1,0 +1,36 @@
+.graph-builder-container {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.legend-box {
+    padding: 10px;
+    border: 1px solid #3454D1;
+    margin-right: 20px;
+    background-color: #EAF2F8;
+    color: #3454D1;
+    font-family: Arial, sans-serif;
+    border-radius: 4px;
+}
+
+.legend-box h3 {
+    margin-top: 0;
+    white-space: pre;
+    font-size: 16px;
+    color: #3454D1;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border: 1px solid #3454D1;
+    border-radius: 3px;
+}
