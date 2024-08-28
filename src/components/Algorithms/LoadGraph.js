@@ -56,7 +56,7 @@ const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
     setSelectedGraph(selectedFile);
 
     if (selectedFile) {
-      fetch(`/data/${selectedFile}`)
+      fetch(`${baseUrl}/data/${selectedFile}`)
         .then(response => response.json())
         .then(processGraphData)
         .catch(error => {
