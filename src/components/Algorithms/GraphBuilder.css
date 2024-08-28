@@ -2,6 +2,10 @@
     display: flex;
     align-items: flex-start;
     height: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .legend-box {
@@ -33,4 +37,18 @@
     margin-right: 10px;
     border: 1px solid #3454D1;
     border-radius: 3px;
+}
+
+.graph-builder {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.graph-builder text {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }

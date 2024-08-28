@@ -334,6 +334,7 @@ const GraphBuilder = ({ nodes, setNodes, edges, setEdges, isGraphSaved, currentS
               textAnchor="middle"
               fill="black"
               fontSize="12px"
+              style={{ userSelect: 'none' }}
             >
               {node.id}
             </text>
