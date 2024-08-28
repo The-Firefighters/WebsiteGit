@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './LoadGraph.css';
 
+const baseUrl = process.env.PUBLIC_URL || ''; // to avoid some issues we had with fetching json data
+
 const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
   const [selectedGraph, setSelectedGraph] = useState('');
   const [availableGraphs, setAvailableGraphs] = useState([]);
@@ -10,7 +12,7 @@ const LoadGraph = ({ nodes, edges, setNodes, setEdges }) => {
   const svgHeight = 600;
 
   useEffect(() => {
-    fetch('/data/graph_list.json')
+    fetch(`${baseUrl}/data/graph_list.json`)
       .then(response => response.json())
       .then(data => setAvailableGraphs(data))
       .catch(error => console.error('Error fetching graph list:', error));
