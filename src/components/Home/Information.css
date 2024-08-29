@@ -110,3 +110,25 @@ h3 {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
+.MathJax_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.MathJax_Display .MathJax {
+    display: inline-block !important;
+}
+
+.MathJax_SVG_Display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.MathJax_SVG_Display .MathJax_SVG {
+    display: inline-block !important;
+}
+
+.MathJax_SVG_Display {
+    text-align: left !important;
+}

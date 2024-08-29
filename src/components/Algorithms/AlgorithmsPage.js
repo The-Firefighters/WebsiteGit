@@ -118,7 +118,7 @@ const AlgorithmPage = () => {
               onClick={handleButtonClick}
               disabled={isAlgorithmRunning}
             >
-              {isGraphSaved ? "Run the Algorithm!" : "Save Graph"}
+              {isGraphSaved ? "Run the Algorithm!" : "Go to Algorithms"}
             </button>
           )}
         </div>
