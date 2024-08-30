@@ -15,6 +15,10 @@
     margin-bottom: 12px;
 }
 
+.return-button-container {
+    margin-bottom: 12px;
+}
+
 .control-button {
     flex: 1;
     padding: 6px;
@@ -30,6 +34,15 @@
 
 .control-button:hover {
     background-color: #2A43A7;
+}
+
+.return-button {
+    background-color: #189AB4;
+    width: 100%;
+}
+
+.return-button:hover {
+    background-color:#2CBFAF;
 }
 
 .log-box {

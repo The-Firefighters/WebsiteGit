@@ -19,6 +19,17 @@ const ChooseAlgo = ({
   const [budget, setBudget] = useState('');
   const [errors, setErrors] = useState({});
 
+  // Reset state when component is rendered
+  useEffect(() => {
+    setLocalSelectedAlgorithm('');
+    setSourceNode('');
+    setTargetNodes([]);
+    setBudget('');
+    setErrors({});
+    // Reset node colors
+    setNodes(prevNodes => prevNodes.map(node => ({ ...node, color: 'lightblue' })));
+  }, [setNodes]);
+
   const algorithms = [
     'Spreading MaxSave',
     'Spreading MinBudget',

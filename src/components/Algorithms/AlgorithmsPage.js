@@ -49,6 +49,15 @@ const AlgorithmPage = () => {
     document.body.removeChild(link);
   };
 
+  const handleReturn = () => {
+    setIsAlgorithmRunning(false);
+    setAlgorithmResult(null);
+    setSelectedAlgorithm('');
+    setCurrentStep(0);
+    // Reset node colors
+    setNodes(prevNodes => prevNodes.map(node => ({ ...node, color: 'lightblue' })));
+  };
+
   return (
     <div className="algorithm-page">
       <div className="content-wrapper">
@@ -89,20 +98,29 @@ const AlgorithmPage = () => {
             </>
           )}
           {isGraphSaved && !isAlgorithmRunning && (
-            <ChooseAlgo
-              nodes={nodes}
-              edges={edges}
-              setNodes={setNodes}
-              isAlgorithmRunning={isAlgorithmRunning}
-              setIsAlgorithmRunning={setIsAlgorithmRunning}
-              shouldRunAlgorithm={shouldRunAlgorithm}
-              setShouldRunAlgorithm={setShouldRunAlgorithm}
-              setAlgorithmResult={(result) => {
-                setAlgorithmResult(result);
-                setCurrentStep(0);
-              }}
-              setSelectedAlgorithm={setSelectedAlgorithm}
-            />
+            <>
+              <ChooseAlgo
+                nodes={nodes}
+                edges={edges}
+                setNodes={setNodes}
+                isAlgorithmRunning={isAlgorithmRunning}
+                setIsAlgorithmRunning={setIsAlgorithmRunning}
+                shouldRunAlgorithm={shouldRunAlgorithm}
+                setShouldRunAlgorithm={setShouldRunAlgorithm}
+                setAlgorithmResult={(result) => {
+                  setAlgorithmResult(result);
+                  setCurrentStep(0);
+                }}
+                setSelectedAlgorithm={setSelectedAlgorithm}
+              />
+              <button
+                className="run-algorithm"
+                onClick={handleButtonClick}
+                disabled={isAlgorithmRunning}
+              >
+                Run the Algorithm!
+              </button>
+            </>
           )}
           {isAlgorithmRunning && (
             <RunningInfo 
@@ -110,15 +128,16 @@ const AlgorithmPage = () => {
               selectedAlgorithm={selectedAlgorithm}
               currentStep={currentStep}
               setCurrentStep={setCurrentStep}
+              onReturn={handleReturn}
             />
           )}
-          {!isAlgorithmRunning && (
+          {!isGraphSaved && (
             <button
-              className={`run-algorithm`}
+              className="run-algorithm"
               onClick={handleButtonClick}
               disabled={isAlgorithmRunning}
             >
-              {isGraphSaved ? "Run the Algorithm!" : "Go to Algorithms"}
+              Go to Algorithms
             </button>
           )}
         </div>

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './RunningInfo.css';
 
-const RunningInfo = ({ algorithmResult, selectedAlgorithm, currentStep, setCurrentStep }) => {
+const RunningInfo = ({ algorithmResult, selectedAlgorithm, currentStep, setCurrentStep, onReturn }) => {
   const [maxStep, setMaxStep] = useState(0);
   const [isNonSpreadingAlgorithm, setIsNonSpreadingAlgorithm] = useState(false);
 
   useEffect(() => {
-  if (algorithmResult && algorithmResult.DrawingResults) {
-    const maxKey = Math.max(...Object.keys(algorithmResult.DrawingResults).map(Number));
-    setMaxStep(maxKey + 1);
-  }
-  setIsNonSpreadingAlgorithm(selectedAlgorithm.toLowerCase().includes('non-spreading'));
-}, [algorithmResult, selectedAlgorithm]);
+    if (algorithmResult && algorithmResult.DrawingResults) {
+      const maxKey = Math.max(...Object.keys(algorithmResult.DrawingResults).map(Number));
+      setMaxStep(maxKey + 1);
+    }
+    setIsNonSpreadingAlgorithm(selectedAlgorithm.toLowerCase().includes('non-spreading'));
+  }, [algorithmResult, selectedAlgorithm]);
 
   const handlePrevious = () => {
     setCurrentStep(prev => Math.max(0, prev - 1));
@@ -107,6 +107,11 @@ const RunningInfo = ({ algorithmResult, selectedAlgorithm, currentStep, setCurre
         </button>
         <button className="control-button" onClick={handleFastForward} disabled={currentStep === maxStep}>
           Fast Forward &#8594;|
+        </button>
+      </div>
+      <div className="return-button-container">
+        <button className="control-button return-button" onClick={onReturn}>
+          Return to Algorithm Selection
         </button>
       </div>
       <div className="log-box">
